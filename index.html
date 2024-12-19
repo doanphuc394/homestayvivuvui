@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<title>Đặt homestay dễ dàng tại VIVUVUI</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="" name="keywords">
+<meta content="" name="description">
+
+<!-- Favicon -->
+<link th:href="@{fe/img/favicon.ico}" rel="icon">
+
+<!-- Google Web Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap"
+	rel="stylesheet">
+
+<!-- Icon Font Stylesheet -->
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
+	rel="stylesheet">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+	rel="stylesheet">
+
+<!-- Libraries Stylesheet -->
+<link th:href="@{fe/lib/animate/animate.min.css}" rel="stylesheet">
+
+<link th:href="@{fe/lib/owlcarousel/assets/owl.carousel.min.css}"
+	rel="stylesheet">
+<link
+	th:href="@{fe/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css}"
+	rel="stylesheet" />
+
+<!-- Customized Bootstrap Stylesheet -->
+<link th:href="@{fe/css/bootstrap.min.css}" rel="stylesheet">
+
+<!-- Template Stylesheet -->
+<link th:href="@{fe/css/style.css}" rel="stylesheet">
+
+</head>
+
+<body>
+	<!-- Spinner Start -->
+	<div id="spinner"
+		class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+		<div class="spinner-border text-primary"
+			style="width: 3rem; height: 3rem;" role="status">
+			<span class="sr-only">Loading...</span>
+		</div>
+	</div>
+	<!-- Spinner End -->
+
+
+	<!-- Topbar Start -->
+	<div class="container-fluid bg-dark px-5 d-none d-lg-block">
+		<div class="row gx-0">
+			<div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+				<div class="d-inline-flex align-items-center" style="height: 45px;">
+					<small class="me-3 text-light"><i
+						class="fa fa-map-marker-alt me-2"></i>Thành phố Hồ Chí Minh, Việt
+						Nam</small> <small class="me-3 text-light"><i
+						class="fa fa-phone-alt me-2"></i>+0374 537 519</small> <small
+						class="text-light"><i class="fa fa-envelope-open me-2"></i>1150080031@sv.hcmunre.com</small>
+				</div>
+			</div>
+			<div class="col-lg-4 text-center text-lg-end">
+				<div class="d-inline-flex align-items-center" style="height: 45px;">
+					<a
+						class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+						href=""><i class="fab fa-twitter fw-normal"></i></a> <a
+						class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+						href=""><i class="fab fa-facebook-f fw-normal"></i></a> <a
+						class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+						href=""><i class="fab fa-linkedin-in fw-normal"></i></a> <a
+						class="btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2"
+						href=""><i class="fab fa-instagram fw-normal"></i></a> <a
+						class="btn btn-sm btn-outline-light btn-sm-square rounded-circle"
+						href=""><i class="fab fa-youtube fw-normal"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Topbar End -->
+
+
+	<!-- Navbar & Hero Start -->
+	<div class="container-fluid position-relative p-0">
+		<nav
+			class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+			<a href="" class="navbar-brand p-0">
+				<h1 class="text-primary m-0">
+					<i class="fa fa-map-marker-alt me-3"></i>VIVUVUI
+				</h1> <!-- <img th:src="@{fe/img/logo.png}" alt="Logo"> -->
+			</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+				<span class="fa fa-bars"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+				<div class="navbar-nav ms-auto py-0">
+					<a href="/" class="nav-item nav-link">Trang chủ</a> 
+					
+					<a th:href="@{/about}" class="nav-item nav-link">Giới thiệu</a>
+					
+					<a href="#" class="nav-item nav-link">Dịch vụ</a>
+					<a href="#" class="nav-item nav-link">Phổ biến</a>
+					<a href="#" class="nav-item nav-link">Đăng ký</a>
+					<a href="#" class="nav-item nav-link">Phản hồi</a>
+					<a href="#" class="nav-item nav-link">Liên hệ</a>
+				</div>
+				<a th:href="@{/login}" class="btn btn-primary rounded-pill py-2 px-4">Đăng nhập</a>
+			</div>
+			
+			
+		</nav>
+
+		<div class="container-fluid bg-primary py-5 mb-5 hero-header">
+			<div class="container py-5">
+				<div class="row justify-content-center py-5">
+					<div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+						<h1 class="display-3 text-white mb-3 animated slideInDown">Cùng
+							tận hưởng kì nghỉ với chúng tôi</h1>
+						<p class="fs-4 text-white mb-4 animated slideInDown">Đặt
+							Homestay trên Vivuvui để trải nghiệm những dịch vụ tuyệt vời</p>
+						<div class="position-relative w-75 mx-auto animated slideInDown">
+							<input
+								class="form-control border-0 rounded-pill w-100 py-3 ps-4 pe-5"
+								type="text" placeholder="Eg: VietNam">
+							<button type="button"
+								class="btn btn-primary rounded-pill py-2 px-4 position-absolute top-0 end-0 me-2"
+								style="margin-top: 7px;">Search</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Navbar & Hero End -->
+
+
+	<!-- About Start -->
+	<div class="container-xxl py-5">
+		<div class="container">
+			<div class="row g-5">
+				<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s"
+					style="min-height: 400px;">
+					<div class="position-relative h-100">
+						<img class="img-fluid position-absolute w-100 h-100"
+							th:src="@{fe/img/about.jpg}" alt="" style="object-fit: cover;">
+					</div>
+				</div>
+				<div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+					<h6 class="section-title bg-white text-start text-primary pe-3">Về
+						chúng tôi</h6>
+					<h1 class="mb-4">
+						Chào mừng đến với <span class="text-primary">Vivuvui</span>
+					</h1>
+					<p class="mb-4">Bạn đang tìm kiếm không gian nghỉ dưỡng ấm
+						cúng, tiện nghi, và gần gũi thiên nhiên? Website Vivuvui là
+						điểm đến lý tưởng giúp bạn thuê homestay một cách nhanh nhất, đơn
+						giản nhất, mang đến trải nghiệm nghỉ dưỡng đáng nhớ tại mọi địa
+						điểm du lịch nổi tiếng.</p>
+					<p class="mb-4">Dù bạn đang tìm homestay dành cho cặp đôi thơ
+						mộng, homestay cho gia đình của bạn , homestay gần đây để đổi gió
+						cuối tuần hay những homestay giá rẻ dành cho sinh viên , chúng tôi
+						đều có giải pháp hoàn hảo dành cho bạn.</p>
+					<div class="row gy-2 gx-4 mb-4">
+						<div class="col-sm-6">
+							<p class="mb-0">
+								<i class="fa fa-arrow-right text-primary me-2"></i>Hệ thống tìm
+								kiếm thông minh
+							</p>
+						</div>
+						<div class="col-sm-6">
+							<p class="mb-0">
+								<i class="fa fa-arrow-right text-primary me-2"></i>Đặt Homestay
+								nhanh gọn
+							</p>
+						</div>
+						<div class="col-sm-6">
+							<p class="mb-0">
+								<i class="fa fa-arrow-right text-primary me-2"></i>Nơi ở tiêu
+								chuẩn 5 sao
+							</p>
+						</div>
+						<div class="col-sm-6">
+							<p class="mb-0">
+								<i class="fa fa-arrow-right text-primary me-2"></i>Phương tiện
+								hiện đại
+							</p>
+						</div>
+						<div class="col-sm-6">
+							<p class="mb-0">
+								<i class="fa fa-arrow-right text-primary me-2"></i>Ưu đãi hấp
+								dẫn
+							</p>
+						</div>
+						<div class="col-sm-6">
+							<p class="mb-0">
+								<i class="fa fa-arrow-right text-primary me-2"></i>Dịch vụ 24/7
+							</p>
+						</div>
+					</div>
+					<a class="btn btn-primary py-3 px-5 mt-2" href="">Xem thêm</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- About End -->
+	<!-- Service Start -->
+	<div class="container-xxl py-5">
+		<div class="container">
+			<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+				<h6 class="section-title bg-white text-center text-primary px-3">Dịch
+					vụ</h6>
+				<h1 class="mb-5">Dịch vụ của chúng tôi</h1>
+			</div>
+			<div class="row g-4">
+				<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+					<div class="service-item rounded pt-3">
+						<div class="p-4">
+							<i class="fa fa-3x fa-globe text-primary mb-4"></i>
+							<h5>Chuyến du lịch hấp dẫn</h5>
+							<p>Khám phá những địa điểm nổi tiếng trên khắp thế giới và
+								tận hưởng kỳ nghỉ tại các homestay được thiết kế ấm cúng, gần
+								gũi thiên nhiên, mang đậm bản sắc địa phương.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+					<div class="service-item rounded pt-3">
+						<div class="p-4">
+							<i class="fa fa-3x fa-hotel text-primary mb-4"></i>
+							<h5>Đặt phòng Homestay</h5>
+							<p>Dễ dàng tìm kiếm và đặt homestay phù hợp với nhu cầu của
+								bạn, từ không gian cho gia đình, cặp đôi, đến những kỳ nghỉ yên
+								tĩnh cho bản thân.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+					<div class="service-item rounded pt-3">
+						<div class="p-4">
+							<i class="fa fa-3x fa-user text-primary mb-4"></i>
+							<h5>Hướng dẫn trải nghiệm địa phương</h5>
+							<p>Cùng chúng tôi khám phá các mẹo nhỏ để tận hưởng địa điểm
+								du lịch như một người bản địa. Từ gợi ý món ăn, các hoạt động,
+								đến những địa điểm ít người biết.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+					<div class="service-item rounded pt-3">
+						<div class="p-4">
+							<i class="fa fa-3x fa-cog text-primary mb-4"></i>
+							<h5>Tổ chức sự kiện đặc biệt</h5>
+							<p>Biến kỳ nghỉ của bạn thành một sự kiện đáng nhớ! Từ tiệc
+								sinh nhật, kỷ niệm gia đình, đến những buổi lễ đặc biệt –
+								homestay của chúng tôi luôn sẵn sàng đáp ứng mọi nhu cầu.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+					<div class="service-item rounded pt-3">
+						<div class="p-4">
+							<i class="fa fa-3x fa-globe text-primary mb-4"></i>
+							<h5>Đưa đón tận nơi</h5>
+							<p>Hãy để chúng tôi lo liệu việc di chuyển cho bạn! Dịch vụ
+								đưa đón sân bay tiện lợi giúp bạn dễ dàng di chuyển từ sân bay
+								đến homestay mà không phải lo lắng về phương tiện giao thông.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+					<div class="service-item rounded pt-3">
+						<div class="p-4">
+							<i class="fa fa-3x fa-hotel text-primary mb-4"></i>
+							<h5>Thuê xe dễ dàng</h5>
+							<p>Khám phá thành phố và các địa điểm du lịch nổi bật với
+								dịch vụ cho thuê xe linh hoạt, giúp bạn dễ dàng di chuyển và
+								trải nghiệm những điều mới mẻ mỗi ngày</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+					<div class="service-item rounded pt-3">
+						<div class="p-4">
+							<i class="fa fa-3x fa-user text-primary mb-4"></i>
+							<h5>Dịch vụ ăn uống</h5>
+							<p>Thưởng thức các món ăn đặc sản và thực đơn phong phú ngay
+								tại homestay. Dịch vụ ăn uống của chúng tôi cam kết mang lại
+								trải nghiệm ẩm thực tuyệt vời, cho bạn cảm giác như đang ở nhà</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+					<div class="service-item rounded pt-3">
+						<div class="p-4">
+							<i class="fa fa-3x fa-cog text-primary mb-4"></i>
+							<h5>Spa & Thư Giãn</h5>
+							<p>Hãy thư giãn tuyệt đối trong kỳ nghỉ của bạn với dịch vụ
+								spa ngay tại homestay. Được chăm sóc bởi các chuyên gia, bạn sẽ
+								có một cơ thể và tâm trí thoải mái, sẵn sàng tận hưởng chuyến đi
+								của mình</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Service End -->
+
+
+	<!-- Destination Start -->
+    <div class="container-xxl py-5 destination">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Phổ biến</h6>
+                <h1 class="mb-5">Địa điểm phổ biến</h1>
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-7 col-md-6">
+                    <div class="row g-3">
+                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" th:src="@{fe/img/destination-1.jpg}" alt="">
+                                <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">30% OFF</div>
+                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Nha Trang</div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" th:src="@{fe/img/destination-2.jpg}" alt="">
+                                <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">25% OFF</div>
+                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Hạ Long</div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" th:src="@{fe/img/destination-3.jpg}" alt="">
+                                <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">35% OFF</div>
+                                <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Vũng Tàu</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
+                    <a class="position-relative d-block h-100 overflow-hidden" href="">
+                        <img class="img-fluid position-absolute w-100 h-100" th:src="@{fe/img/destination-4.jpg}" alt="" style="object-fit: cover;">
+                        <div class="bg-white text-danger fw-bold position-absolute top-0 start-0 m-3 py-1 px-2">20% OFF</div>
+                        <div class="bg-white text-primary fw-bold position-absolute bottom-0 end-0 m-3 py-1 px-2">Huế</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Destination Start -->
+
+
+	<!-- Package Start -->
+	<div class="container-xxl py-5">
+		<div class="container">
+			<div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+				<h6 class="section-title bg-white text-center text-primary px-3">Gói
+					dịch vụ</h6>
+				<h1 class="mb-5">Các gói dịch vụ tuyệt vời</h1>
+			</div>
+			<div class="row g-4 justify-content-center">
+				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+					<div class="package-item">
+						<div class="overflow-hidden">
+							<img class="img-fluid" th:src="@{fe/img/package-1.jpg}" alt="">
+						</div>
+						<div class="d-flex border-bottom">
+							<small class="flex-fill text-center border-end py-2"><i
+								class="fa fa-map-marker-alt text-primary me-2"></i>Hạ Long</small> <small
+								class="flex-fill text-center border-end py-2"><i
+								class="fa fa-calendar-alt text-primary me-2"></i>3 ngày</small> <small
+								class="flex-fill text-center py-2"><i
+								class="fa fa-user text-primary me-2"></i>2 người</small>
+						</div>
+						<div class="text-center p-4">
+							<h3 class="mb-0">$149.00</h3>
+							<div class="mb-3">
+								<small class="fa fa-star text-primary"></small> <small
+									class="fa fa-star text-primary"></small> <small
+									class="fa fa-star text-primary"></small> <small
+									class="fa fa-star text-primary"></small> <small
+									class="fa fa-star text-primary"></small>
+							</div>
+							<p>Tham gia các tour lặn biển để chiêm ngưỡng thế giới dưới
+								đáy biển đầy màu sắc</p>
+							<div class="d-flex justify-content-center mb-2">
+								<a href="#" class="btn btn-sm btn-primary px-3 border-end"
+									style="border-radius: 30px 0 0 30px;">Xem thêm</a> <a href="#"
+									class="btn btn-sm btn-primary px-3"
+									style="border-radius: 0 30px 30px 0;">Đặt ngay</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+					<div class="package-item">
+						<div class="overflow-hidden">
+							<img class="img-fluid" th:src="@{fe/img/package-2.jpg}" alt="">
+						</div>
+						<div class="d-flex border-bottom">
+							<small class="flex-fill text-center border-end py-2"><i
+								class="fa fa-map-marker-alt text-primary me-2"></i>Hải Phòng</small> <small
+								class="flex-fill text-center border-end py-2"><i
+								class="fa fa-calendar-alt text-primary me-2"></i>3 ngày</small> <small
+								class="flex-fill text-center py-2"><i
+								class="fa fa-user text-primary me-2"></i>2 người</small>
+						</div>
+						<div class="text-center p-4">
+							<h3 class="mb-0">$139.00</h3>
+							<div class="mb-3">
+								<small class="fa fa-star text-primary"></small> <small
+									class="fa fa-star text-primary"></small> <small
+									class="fa fa-star text-primary"></small> <small
+									class="fa fa-star text-primary"></small> <small
+									class="fa fa-star text-primary"></small>
+							</div>
+							<p>Khám phá các bãi biển hoang sơ và những vách đá hùng
+								vĩ.Tham gia vào các tour kayak khám phá vịnh Lan Hạ và những
+								hang động kỳ thú</p>
+							<div class="d-flex justify-content-center mb-2">
+								<a href="#" class="btn btn-sm btn-primary px-3 border-end"
+									style="border-radius: 30px 0 0 30px;">Xem thêm</a> <a href="#"
+									class="btn btn-sm btn-primary px-3"
+									style="border-radius: 0 30px 30px 0;">Đặt ngay</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+					<div class="package-item">
+						<div class="overflow-hidden">
+							<img class="img-fluid" th:src="@{fe/img/package-3.jpg}" alt="">
+						</div>
+						<div class="d-flex border-bottom">
+							<small class="flex-fill text-center border-end py-2"><i
+								class="fa fa-map-marker-alt text-primary me-2"></i>Nha Trang</small> <small
+								class="flex-fill text-center border-end py-2"><i
+								class="fa fa-calendar-alt text-primary me-2"></i>3 ngày</small> <small
+								class="flex-fill text-center py-2"><i
+								class="fa fa-user text-primary me-2"></i>2 người</small>
+						</div>
+						<div class="text-center p-4">
+							<h3 class="mb-0">$189.00</h3>
+							<div class="mb-3">
+								<small class="fa fa-star text-primary"></small> <small
+									class="fa fa-star text-primary"></small> <small
+									class="fa fa-star text-primary"></small> <small
+									class="fa fa-star text-primary"></small> <small
+									class="fa fa-star text-primary"></small>
+							</div>
+							<p>Dành cho những ai yêu thích sự khám phá và thử thách với
+								các hoạt động ướt ván diều, lướt ván buồm, moto nước, dù bay
+								trên biển</p>
+							<div class="d-flex justify-content-center mb-2">
+								<a href="#" class="btn btn-sm btn-primary px-3 border-end"
+									style="border-radius: 30px 0 0 30px;">Xem thêm</a> <a href="#"
+									class="btn btn-sm btn-primary px-3"
+									style="border-radius: 0 30px 30px 0;">Đặt ngay</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Package End -->
+
+
+	<!-- Booking Start -->
+	<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+		<div class="container">
+			<div class="booking p-5">
+				<div class="row g-5 align-items-center">
+					<div class="col-md-6 text-white">
+						<h6 class="text-white text-uppercase"></h6>
+						<h1 class="text-white mb-4">Đặt chỗ trực tuyến</h1>
+						<p class="mb-4">Chỉ cần điền thông tin và thực hiện thanh toán
+							online nhanh chóng, bạn sẽ nhận được xác nhận và thông tin chi
+							tiết về việc đặt phòng ngay lập tức.</p>
+						<p class="mb-4">Chọn điểm đến và homestay yêu thích của bạn,
+							từ những hòn đảo xinh đẹp cho đến các thành phố nổi tiếng, mọi
+							lựa chọn đều dễ dàng chỉ với vài cú nhấp chuột.</p>
+						<a class="btn btn-outline-light py-3 px-5 mt-2" href="">Xem
+							thêm</a>
+					</div>
+					<div class="col-md-6">
+						<h1 class="text-white mb-4">Điền thông tin</h1>
+						<form>
+							<div class="row g-3">
+								<div class="col-md-6">
+									<div class="form-floating">
+										<input type="text" class="form-control bg-transparent"
+											id="name" placeholder="Tên bạn"> <label for="name">Tên
+											bạn</label>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-floating">
+										<input type="email" class="form-control bg-transparent"
+											id="email" placeholder="Email của bạn"> <label
+											for="email">Email của bạn</label>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-floating date" id="date3"
+										data-target-input="nearest">
+										<input type="text"
+											class="form-control bg-transparent datetimepicker-input"
+											id="datetime" placeholder="Ngày & giờ" data-target="#date3"
+											data-toggle="datetimepicker" /> <label for="datetime">Ngày
+											& giờ</label>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-floating">
+										<select class="form-select bg-transparent" id="select1">
+											<option value="1">Nha trang</option>
+											<option value="2">Đà Lạt</option>
+											<option value="3">Hạ Long</option>
+										</select> <label for="select1">Điểm đến</label>
+									</div>
+								</div>
+								<div class="col-12">
+									<div class="form-floating">
+										<textarea class="form-control bg-transparent"
+											placeholder="Special Request" id="message"
+											style="height: 100px"></textarea>
+										<label for="message">Yêu cầu đặc biệt</label>
+									</div>
+								</div>
+								<div class="col-12">
+									<button class="btn btn-outline-light w-100 py-3" type="submit">Đặt
+										ngay</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Booking Start -->
+
+
+	<!-- Process Start -->
+	<div class="container-xxl py-5">
+		<div class="container">
+			<div class="text-center pb-4 wow fadeInUp" data-wow-delay="0.1s">
+				<h6 class="section-title bg-white text-center text-primary px-3">Quy
+					trình</h6>
+				<h1 class="mb-5">Đơn giản với 3 bước</h1>
+			</div>
+			<div class="row gy-5 gx-4 justify-content-center">
+				<div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp"
+					data-wow-delay="0.1s">
+					<div class="position-relative border border-primary pt-5 pb-4 px-4">
+						<div
+							class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow"
+							style="width: 100px; height: 100px;">
+							<i class="fa fa-globe fa-3x text-white"></i>
+						</div>
+						<h5 class="mt-4">Chọn điểm đến và đặt homestay</h5>
+						<hr class="w-25 mx-auto bg-primary mb-1">
+						<hr class="w-50 mx-auto bg-primary mt-0">
+						<p class="mb-0">Chọn điểm đến yêu thích của bạn và đặt phòng
+							dễ dàng chỉ với vài cú nhấp chuột.</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp"
+					data-wow-delay="0.3s">
+					<div class="position-relative border border-primary pt-5 pb-4 px-4">
+						<div
+							class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow"
+							style="width: 100px; height: 100px;">
+							<i class="fa fa-dollar-sign fa-3x text-white"></i>
+						</div>
+						<h5 class="mt-4">Thanh toán trực tuyến</h5>
+						<hr class="w-25 mx-auto bg-primary mb-1">
+						<hr class="w-50 mx-auto bg-primary mt-0">
+						<p class="mb-0">Thanh toán trực tuyến dễ dàng và an toàn với
+							các phương thức thanh toán linh hoạt.</p>
+					</div>
+				</div>
+				<div class="col-lg-4 col-sm-6 text-center pt-4 wow fadeInUp"
+					data-wow-delay="0.5s">
+					<div class="position-relative border border-primary pt-5 pb-4 px-4">
+						<div
+							class="d-inline-flex align-items-center justify-content-center bg-primary rounded-circle position-absolute top-0 start-50 translate-middle shadow"
+							style="width: 100px; height: 100px;">
+							<i class="fa fa-plane fa-3x text-white"></i>
+						</div>
+						<h5 class="mt-4">Xuất phát ngay</h5>
+						<hr class="w-25 mx-auto bg-primary mb-1">
+						<hr class="w-50 mx-auto bg-primary mt-0">
+						<p class="mb-0">Khởi hành và tận hưởng chuyến đi đáng nhớ của
+							bạn.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Process Start -->
+
+
+
+
+
+	<!-- Testimonial Start -->
+	<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+		<div class="container">
+			<div class="text-center">
+				<h6 class="section-title bg-white text-center text-primary px-3">Phản
+					hồi</h6>
+				<h1 class="mb-5">Khách hàng của chúng tôi nói!!!</h1>
+			</div>
+			<div class="owl-carousel testimonial-carousel position-relative">
+				<div class="testimonial-item bg-white text-center border p-4">
+					<img class="bg-white rounded-circle shadow p-1 mx-auto mb-3"
+						th:src="@{fe/img/testimonial-1.jpg}"
+						style="width: 80px; height: 80px;">
+					<h5 class="mb-0">Dương Ngọc Điệp</h5>
+					<p>Huế, Việt Nam</p>
+					<p class="mb-0">"Tôi đã đặt một homestay Đà Lạt qua website này
+						và thật sự rất hài lòng. Giao diện dễ sử dụng, giúp tôi tìm được
+						homestay phù hợp nhanh chóng. Chỗ ở ở Đà Lạt rất thoải mái, gần
+						trung tâm và có không gian cực kỳ ấm cúng. Chắc chắn tôi sẽ tiếp
+						tục thuê homestay qua đây cho những chuyến đi tiếp theo!"</p>
+				</div>
+				<div class="testimonial-item bg-white text-center border p-4">
+					<img class="bg-white rounded-circle shadow p-1 mx-auto mb-3"
+						th:src="@{fe/img/testimonial-2.jpg}"
+						style="width: 80px; height: 80px;">
+					<h5 class="mb-0">Đoàn Phúc</h5>
+					<p>Đà Nẵng, Việt Nam</p>
+					<p class="mt-2 mb-0">"Chúng tôi đã chọn homestay Mũi Né cho gia
+						đình và thực sự rất ấn tượng với chất lượng dịch vụ. Các phòng
+						rộng rãi, có hồ bơi đẹp và gần biển. Website rất dễ sử dụng, giúp
+						tôi đặt phòng nhanh chóng và đơn giản. Chắc chắn sẽ giới thiệu cho
+						bạn bè khi họ muốn thuê homestay tại Mũi Né."</p>
+				</div>
+				<div class="testimonial-item bg-white text-center border p-4">
+					<img class="bg-white rounded-circle shadow p-1 mx-auto mb-3"
+						th:src="@{fe/img/testimonial-3.jpg}"
+						style="width: 80px; height: 80px;">
+					<h5 class="mb-0">John Doe</h5>
+					<p>New York, USA</p>
+					<p class="mt-2 mb-0">"Tôi và bạn gái đã đặt một homestay dành
+						cho cặp đôi gần đây tại Đà Lạt qua website này. Chúng tôi rất hài
+						lòng vì chỗ ở rất lãng mạn, yên tĩnh và có đầy đủ tiện nghi. Dịch
+						vụ rất tuyệt vời, dễ dàng đặt phòng và thanh toán trực tuyến. Chắc
+						chắn sẽ quay lại cho những lần du lịch tiếp theo!"</p>
+				</div>
+				<div class="testimonial-item bg-white text-center border p-4">
+					<img class="bg-white rounded-circle shadow p-1 mx-auto mb-3"
+						th:src="@{fe/img/testimonial-4.jpg}"
+						style="width: 80px; height: 80px;">
+					<h5 class="mb-0">Bảo Long</h5>
+					<p>Hồ Chí Minh, Việt Nam</p>
+					<p class="mt-2 mb-0">"Lần đầu tiên tôi sử dụng dịch vụ đặt
+						homestay nhanh nhất, đơn giản nhất qua website này và tôi rất ấn
+						tượng. Giao diện website rất thân thiện, tôi dễ dàng tìm được
+						homestay phù hợp với nhu cầu của mình ở Cần Thơ, với mức giá hợp
+						lý. Tôi sẽ tiếp tục sử dụng dịch vụ này cho các chuyến đi sau."</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Testimonial End -->
+
+
+	<!-- Footer Start -->
+	<div
+		class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn"
+		data-wow-delay="0.1s">
+		<div class="container py-5">
+			<div class="row g-5">
+				<div class="col-lg-3 col-md-6">
+					<h4 class="text-white mb-3">Danh mục</h4>
+					<a class="btn btn-link" href="">Về chúng tôi</a> <a
+						class="btn btn-link" href="">Liên hệ</a> <a class="btn btn-link"
+						href="">Chính sách bảo mật</a> <a class="btn btn-link" href="">Điều
+						khoản & Điều kiện</a> <a class="btn btn-link" href="">Câu hỏi &
+						Trợ giúp</a>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<h4 class="text-white mb-3">Contact</h4>
+					<p class="mb-2">
+						<i class="fa fa-map-marker-alt me-3"></i>Hồ Chí Minh, Việt Nam
+					</p>
+					<p class="mb-2">
+						<i class="fa fa-phone-alt me-3"></i>+0374 537 519
+					</p>
+					<p class="mb-2">
+						<i class="fa fa-envelope me-3"></i>1150080031@edu.hcmunre.com
+					</p>
+					<div class="d-flex pt-2">
+						<a class="btn btn-outline-light btn-social" href=""><i
+							class="fab fa-twitter"></i></a> <a
+							class="btn btn-outline-light btn-social" href=""><i
+							class="fab fa-facebook-f"></i></a> <a
+							class="btn btn-outline-light btn-social" href=""><i
+							class="fab fa-youtube"></i></a> <a
+							class="btn btn-outline-light btn-social" href=""><i
+							class="fab fa-linkedin-in"></i></a>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<h4 class="text-white mb-3">Hình ảnh</h4>
+					<div class="row g-2 pt-2">
+						<div class="col-4">
+							<img class="img-fluid bg-light p-1"
+								th:src="@{fe/img/package-1.jpg}" alt="">
+						</div>
+						<div class="col-4">
+							<img class="img-fluid bg-light p-1"
+								th:src="@{fe/img/package-2.jpg}" alt="">
+						</div>
+						<div class="col-4">
+							<img class="img-fluid bg-light p-1"
+								th:src="@{fe/img/package-3.jpg}" alt="">
+						</div>
+						<div class="col-4">
+							<img class="img-fluid bg-light p-1"
+								th:src="@{fe/img/package-2.jpg}" alt="">
+						</div>
+						<div class="col-4">
+							<img class="img-fluid bg-light p-1"
+								th:src="@{fe/img/package-3.jpg}" alt="">
+						</div>
+						<div class="col-4">
+							<img class="img-fluid bg-light p-1"
+								th:src="@{fe/img/package-1.jpg}" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-md-6">
+					<h4 class="text-white mb-3">Thư mới</h4>
+					<p>Hãy tận hưởng kì nghỉ cùng chúng tôi</p>
+					<div class="position-relative mx-auto" style="max-width: 400px;">
+						<input class="form-control border-primary w-100 py-3 ps-4 pe-5"
+							type="text" placeholder="Email của bạn">
+						<button type="button"
+							class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Đăng
+							nhập</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="copyright">
+				<div class="row">
+					<div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+						&copy; <a class="border-bottom" href="#">Đoàn Phúc</a>, All Right
+						Reserved.
+
+						<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+						Designed By <a class="border-bottom" href="https://htmlcodex.com">Phúc
+							Đoàn</a>
+					</div>
+					<div class="col-md-6 text-center text-md-end">
+						<div class="footer-menu">
+							<a href="">Home</a> <a href="">Cookies</a> <a href="">Giúp đỡ</a>
+							<a href="">Hỏi đáp</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer End -->
+
+
+	<!-- Back to Top -->
+	<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+		class="bi bi-arrow-up"></i></a>
+
+
+	<!-- JavaScript Libraries -->
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+	<script th:src="@{fe/lib/wow/wow.min.js}"></script>
+	<script th:src="@{fe/lib/easing/easing.min.js}"></script>
+	<script th:src="@{fe/lib/waypoints/waypoints.min.js}"></script>
+	<script th:src="@{fe/lib/owlcarousel/owl.carousel.min.js}"></script>
+	<script th:src="@{fe/lib/tempusdominus/js/moment.min.js}"></script>
+	<script th:src="@{fe/lib/tempusdominus/js/moment-timezone.min.js}"></script>
+	<script
+		th:src="@{fe/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js}"></script>
+
+	<!-- Template Javascript -->
+	<script th:src="@{fe/js/main.js}"></script>
+</body>
+
+</html>
